@@ -21,6 +21,7 @@ Unfortunately, this project is not currently open to project contributions. Howe
 ## Credits
 Developed by fffadedev\
 Developed with the Unity engine
-
+\
+\
 This project is licensed under an MIT license.\
 This README file was last updated on 11/27/23. 
