@@ -14,7 +14,7 @@ public class BallMovement : MonoBehaviour
     // How much y direction can be used when hitting with paddle
     [SerializeField] private float yVelocityClamp = 0.5f;
     
-    [SerializeField] private float initialSpeed = 20f;
+    [SerializeField] private float initialSpeed;
 
     public float CurrentSpeed { get; private set; } 
 

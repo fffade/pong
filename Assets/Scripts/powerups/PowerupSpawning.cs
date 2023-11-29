@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PowerupSpawning : MonoBehaviour
 {
@@ -10,8 +11,11 @@ public class PowerupSpawning : MonoBehaviour
     // The prefab powerups this spawner can use
     [SerializeField] private List<GameObject> powerups;
     
+    // A list keeping track of every powerup object spawned
+    private List<GameObject> _spawnedPowerups;
+    
     // Whether or not this powerup spawning is currently working
-    public bool IsSpawning;
+    [FormerlySerializedAs("IsSpawning")] public bool isSpawning;
     
     // How often to spawn a powerup
     [SerializeField] private float spawnInterval;
@@ -24,6 +28,8 @@ public class PowerupSpawning : MonoBehaviour
     
     void Start()
     {
+        _spawnedPowerups = new List<GameObject>();
+        
         StartCoroutine(nameof(SpawnLoop));
     }
 
@@ -32,7 +38,7 @@ public class PowerupSpawning : MonoBehaviour
     {
         while (true)
         {
-            if (IsSpawning)
+            if (isSpawning)
             {
                 SpawnPowerup(GetRandomPowerup());
             }
@@ -59,5 +65,29 @@ public class PowerupSpawning : MonoBehaviour
         
         // Instantiate a new powerup object
         GameObject newPowerupObject = GameObject.Instantiate(powerup, randomPosition, Quaternion.identity, transform);
+
+        newPowerupObject.GetComponent<Powerup>().spawner = this;
+        
+        _spawnedPowerups.Add(newPowerupObject);
+    }
+    
+    // Deletes every single powerup
+    public void ClearPowerups()
+    {
+        for (int i = _spawnedPowerups.Count - 1; i >= 0; i--)
+        {
+            DeletePowerup(_spawnedPowerups[i]);
+        }
+    }
+    
+    // Deletes a spawned powerup
+    public void DeletePowerup(GameObject powerup)
+    {
+        if (_spawnedPowerups.Contains(powerup))
+        {
+            _spawnedPowerups.Remove(powerup);
+            
+            GameObject.Destroy(powerup);
+        }
     }
 }

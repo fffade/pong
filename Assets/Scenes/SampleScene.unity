@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 187295313}
   - component: {fileID: 187295314}
   - component: {fileID: 187295315}
+  - component: {fileID: 187295316}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -278,8 +279,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yVelocityClamp: 0.7
-  initialSpeed: 100
-  acceleration: 1
+  initialSpeed: 1000
+  acceleration: 0.25
 --- !u!212 &187295309
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -321,7 +322,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5a6fd0fbb677b9742bd10550b923364b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -342,7 +343,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -408,7 +409,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.3
 --- !u!114 &187295313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,7 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 434a9d2be51d4197a9ba07027843469c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialRadius: 0.25
+  initialRadius: 0.5
   currentRadiusModifier: 1
 --- !u!114 &187295315
 MonoBehaviour:
@@ -447,9 +448,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5df176f4f7219dd44ad408e9567f3fb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  burstSpeed: 1
+  burstSpeed: 0.75
   gradualSpeedIncrease: 0.1
   gradualSpeedRate: 1
+--- !u!114 &187295316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187295307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a35a94bc39c44675856d3dd3ee65ac14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsActive: 0
+  shrinkMultiplier: 0.75
 --- !u!1 &219374243
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,6 +509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85c022a5b45841f5a576b117f2fb0ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerupSpawner: {fileID: 1770126899}
   winningScore: 5
   paddleDefaultYPosition: 0
   paddle1: {fileID: 1775563139}
@@ -1798,8 +1814,10 @@ MonoBehaviour:
   powerups:
   - {fileID: 3907555287595167977, guid: cc29b1b40f8d7f64793572a8f58aa0fc, type: 3}
   - {fileID: 3907555287595167977, guid: 7da869a6c783c8e4eaf0edc64b222a28, type: 3}
-  IsSpawning: 1
-  spawnInterval: 2
+  - {fileID: 3907555287595167977, guid: 815676305f5762b419bf1d5680bce03f, type: 3}
+  - {fileID: 3907555287595167977, guid: da4f54ec69dfc7d43909443fffcb678e, type: 3}
+  isSpawning: 0
+  spawnInterval: 20
 --- !u!61 &1770126900
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -6,10 +6,14 @@ public class BallCollision : MonoBehaviour
 {
     private BallMovement _movement;
 
+    private BallPaddleShrink _paddleShrink;
+
 
     void Awake()
     {
         _movement = GetComponent<BallMovement>();
+
+        _paddleShrink = GetComponent<BallPaddleShrink>();
     }
     
     void OnTriggerEnter2D(Collider2D collider)
@@ -33,6 +37,9 @@ public class BallCollision : MonoBehaviour
             Vector2 distanceFromCenter = (contactPoint - (Vector2)collider.bounds.center);
 
             _movement.AdjustYVelocity(Mathf.Abs(distanceFromCenter.y));
+            
+            // Check if paddle shrink is on from a picked up powerup
+            _paddleShrink.Check(collider.gameObject.transform);
         }
     }
 }

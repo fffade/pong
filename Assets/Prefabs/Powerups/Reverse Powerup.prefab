@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2137819211882315059, guid: 01103f0061a02d84e88d7b8e502dd3eb, type: 3}
       propertyPath: m_Name
-      value: Fire Powerup
+      value: Reverse Powerup
       objectReference: {fileID: 0}
     - target: {fileID: 6650770119559990097, guid: 01103f0061a02d84e88d7b8e502dd3eb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63,7 +63,7 @@ PrefabInstance:
     - target: {fileID: 9093042514319309485, guid: 01103f0061a02d84e88d7b8e502dd3eb, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 7032e1c2ecc0a044f8bd2a1816705204, type: 3}
+      objectReference: {fileID: 21300000, guid: fb586a5cab455864e94b199f805cd98e, type: 3}
     m_RemovedComponents:
     - {fileID: 2543139348695404181, guid: 01103f0061a02d84e88d7b8e502dd3eb, type: 3}
     m_RemovedGameObjects: []
@@ -71,14 +71,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2137819211882315059, guid: 01103f0061a02d84e88d7b8e502dd3eb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -656805728294037905}
+      addedObject: {fileID: 6868461422519568738}
   m_SourcePrefab: {fileID: 100100000, guid: 01103f0061a02d84e88d7b8e502dd3eb, type: 3}
 --- !u!1 &3907555287595167977 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2137819211882315059, guid: 01103f0061a02d84e88d7b8e502dd3eb, type: 3}
   m_PrefabInstance: {fileID: 3139400279025192410}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-656805728294037905
+--- !u!114 &6868461422519568738
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,7 +87,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3907555287595167977}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93796c554a8c4b7db8c11a46090cffdb, type: 3}
+  m_Script: {fileID: 11500000, guid: cc16af76a673a85488f3301755931cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: fire_powerup
+  name: reversal_powerup
+  spawner: {fileID: 0}

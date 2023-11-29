@@ -13,6 +13,9 @@ public class Game : MonoBehaviour
 
     private GameEndUI _gameEndUI;
     
+    // Spawner for powerups
+    [SerializeField] private PowerupSpawning powerupSpawner;
+    
     // How much to reach to win the game
     [SerializeField] private int winningScore;
 
@@ -23,8 +26,10 @@ public class Game : MonoBehaviour
 
     [SerializeField] private Transform ballSpawnTransform;
 
+    // Ball components
     private BallMovement _ballMovement;
     private BallSize _ballSize;
+    private BallPaddleShrink _ballPaddleShrink;
     
     // How long to wait before launching the ball after spawning
     [SerializeField] private float ballLaunchDelay = 2f;
@@ -36,8 +41,10 @@ public class Game : MonoBehaviour
 
         _gameEndUI = GameObject.FindGameObjectWithTag("GameEndUI").GetComponent<GameEndUI>();
 
-        _ballMovement = GameObject.FindGameObjectWithTag("Ball").GetComponent<BallMovement>();
-        _ballSize = GameObject.FindGameObjectWithTag("Ball").GetComponent<BallSize>();
+        GameObject ball = GameObject.FindGameObjectWithTag("Ball");
+        _ballMovement = ball.GetComponent<BallMovement>();
+        _ballSize = ball.GetComponent<BallSize>();
+        _ballPaddleShrink = ball.GetComponent<BallPaddleShrink>();
     }
 
     void Start()
@@ -62,6 +69,8 @@ public class Game : MonoBehaviour
     public void StartGame()
     {
         _ballMovement.Invoke(nameof(_ballMovement.RandomDirection), ballLaunchDelay);
+        
+        powerupSpawner.isSpawning = true;
     }
     
     // Resets and starts the game at once
@@ -78,6 +87,8 @@ public class Game : MonoBehaviour
         _ballMovement.StopMovement();
         
         _ballSize.ResetModifier();
+
+        _ballPaddleShrink.IsActive = false;
     }
     
     // Resets paddles to default y
@@ -85,11 +96,17 @@ public class Game : MonoBehaviour
     {
         paddle1.position = new Vector3(paddle1.position.x, paddleDefaultYPosition, paddle1.position.y);
         paddle2.position = new Vector3(paddle2.position.x, paddleDefaultYPosition, paddle2.position.y);
+        
+        paddle1.GetComponent<PaddleSize>().ResetModifier();
+        paddle2.GetComponent<PaddleSize>().ResetModifier();
     }
     
     // Ends the game, displaying the final UI with the winner
     public void End(int winner)
     {
+        powerupSpawner.ClearPowerups();
+        powerupSpawner.isSpawning = false;
+        
         _gameEndUI.Show(winner);
     }
     
@@ -118,6 +135,9 @@ public class Game : MonoBehaviour
         {
             // Wait before launching ball
             _ballMovement.Invoke(nameof(_ballMovement.RandomDirection), ballLaunchDelay);
+            
+            paddle1.GetComponent<PaddleSize>().ResetModifier();
+            paddle2.GetComponent<PaddleSize>().ResetModifier();
 
             return;
         }

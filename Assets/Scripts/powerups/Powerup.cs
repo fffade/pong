@@ -7,6 +7,9 @@ public class Powerup : MonoBehaviour
     // The reference name for this powerup
     [SerializeField] public string name;
     
+    // The spawner used to spawn this powerup
+    public PowerupSpawning spawner;
+    
     /* Trigger event when collided with by ball */
     void OnTriggerEnter2D(Collider2D collider)
     {
@@ -27,6 +30,6 @@ public class Powerup : MonoBehaviour
     // Remove this powerup from the world
     protected void Delete()
     {
-        GameObject.Destroy(gameObject);
+        spawner.DeletePowerup(gameObject);
     }
 }
