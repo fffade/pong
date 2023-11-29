@@ -8,8 +8,8 @@ If the ball passes the player's side of the screen or the opponent's side, the o
 This project was made in Unity version 2022.3. 
 
 ## How do I install?
-This project is completely open-source, which means everything that you need to play is included in the downloadable .zip for this project.\
-Simply download the .zip file, extract its contents, open the build->version folder you want to play, and run Pong.exe. 
+This project is an open-source video game, and a playable version will be available soon on sites like itch.io.\
+As of right now, only the source code is available for viewing here.
 
 ## How do I play?
 The controls are even simpler than the installation process:\
