@@ -6,7 +6,7 @@ Written by fffadedev.
 
 ## [Unreleased]
 
-## [v1.1.0] - 2023-11-29
+## [v1.1.0] Pre-alpha, 2023-11-29
 
 ### Added
 
