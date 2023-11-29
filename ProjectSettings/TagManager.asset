@@ -9,6 +9,7 @@ TagManager:
   - SideBorder
   - ScoreUI
   - GameEndUI
+  - Ball
   layers:
   - Default
   - TransparentFX

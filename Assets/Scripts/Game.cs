@@ -23,16 +23,21 @@ public class Game : MonoBehaviour
 
     [SerializeField] private Transform ballSpawnTransform;
 
-    [FormerlySerializedAs("ball")] [SerializeField] private BallMovement ballMovement;
+    private BallMovement _ballMovement;
+    private BallSize _ballSize;
     
     // How long to wait before launching the ball after spawning
     [SerializeField] private float ballLaunchDelay = 2f;
 
+    
     void Awake()
     {
         _scores = GetComponent<Scores>();
 
         _gameEndUI = GameObject.FindGameObjectWithTag("GameEndUI").GetComponent<GameEndUI>();
+
+        _ballMovement = GameObject.FindGameObjectWithTag("Ball").GetComponent<BallMovement>();
+        _ballSize = GameObject.FindGameObjectWithTag("Ball").GetComponent<BallSize>();
     }
 
     void Start()
@@ -56,7 +61,7 @@ public class Game : MonoBehaviour
     // Starts the game
     public void StartGame()
     {
-        ballMovement.Invoke(nameof(ballMovement.RandomDirection), ballLaunchDelay);
+        _ballMovement.Invoke(nameof(_ballMovement.RandomDirection), ballLaunchDelay);
     }
     
     // Resets and starts the game at once
@@ -69,8 +74,10 @@ public class Game : MonoBehaviour
     // Resets ball to center of screen with zero movement
     public void ResetBall()
     {
-        ballMovement.MovePosition(ballSpawnTransform.position);
-        ballMovement.StopMovement();
+        _ballMovement.MovePosition(ballSpawnTransform.position);
+        _ballMovement.StopMovement();
+        
+        _ballSize.ResetModifier();
     }
     
     // Resets paddles to default y
@@ -110,7 +117,7 @@ public class Game : MonoBehaviour
         if (winner == -1)
         {
             // Wait before launching ball
-            ballMovement.Invoke(nameof(ballMovement.RandomDirection), ballLaunchDelay);
+            _ballMovement.Invoke(nameof(_ballMovement.RandomDirection), ballLaunchDelay);
 
             return;
         }

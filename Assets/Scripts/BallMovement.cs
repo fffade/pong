@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 public class BallMovement : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
+
+    private BallFire _ballFire;
     
     
     // How much y direction can be used when hitting with paddle
@@ -25,6 +27,8 @@ public class BallMovement : MonoBehaviour
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+
+        _ballFire = GetComponent<BallFire>();
     }
 
     void Start()
@@ -41,7 +45,7 @@ public class BallMovement : MonoBehaviour
     {
         CurrentSpeed += acceleration;
         
-        Vector2 movement = Direction * CurrentSpeed;
+        Vector2 movement = Direction * (CurrentSpeed * _ballFire.BallSpeedModifier);
 
         _rigidbody.velocity = movement * Time.fixedDeltaTime;
     }
@@ -84,6 +88,8 @@ public class BallMovement : MonoBehaviour
     {
         Direction = Vector2.zero;
         CurrentSpeed = initialSpeed;
+
+        _ballFire.ResetFire();
     }
     
     // Moves ball to a position
