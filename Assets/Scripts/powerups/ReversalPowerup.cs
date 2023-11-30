@@ -6,9 +6,9 @@ using UnityEngine;
 public class ReversalPowerup : Powerup
 {
     
-    protected override void OnHit(Transform ball)
+    protected override void OnHit(Transform ball, Transform paddle)
     {
-        base.OnHit(ball);
+        base.OnHit(ball, paddle);
 
         BallMovement ballMovement = ball.GetComponent<BallMovement>();
         

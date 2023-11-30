@@ -8,8 +8,18 @@ Written by fffadedev.
 
 ### Added
 
+- New sounds:
+- &emsp;Paddle hit
+- &emsp;Powerup hit
+- Open pause menu with P
+
+## [v1.3.0] Pre-alpha, 2023-11-30
+
+### Added
+
 - Sprite for paddle shrink powerup
-- Forcefield powerup and system
+- New forcefield powerup - Gives extra forcefield use to last shooting paddle
+- Activate forcefield behind paddle with F
 
 ## [v1.2.0] Pre-alpha, 2023-11-29
 
@@ -34,3 +44,4 @@ Written by fffadedev.
 - [unreleased](#unreleased)
 - [1.1.0](#v1.1.0)
 - [1.2.0](#v1.2.0)
+- [1.3.0](#v1.3.0)

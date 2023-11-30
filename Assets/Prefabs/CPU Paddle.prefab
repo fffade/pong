@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9035296226286435752, guid: 89df4ba6791663f439831fc8bc26eebe, type: 3}
+      propertyPath: activateKey
+      value: 127
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7671825780443993216, guid: 89df4ba6791663f439831fc8bc26eebe, type: 3}
     m_RemovedGameObjects: []

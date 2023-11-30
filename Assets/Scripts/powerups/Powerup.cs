@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class Powerup : MonoBehaviour
@@ -16,15 +17,17 @@ public class Powerup : MonoBehaviour
         // Ensure ball collision
         if (!collider.gameObject.CompareTag("Ball"))
             return;
+
+        BallMovement ballMovement = collider.gameObject.GetComponent<BallMovement>();
         
-        OnHit(collider.gameObject.transform);
+        OnHit(collider.gameObject.transform, ballMovement.lastHitPaddle);
     }
     
     /* Occurs when this powerup is hit */
     // Method is used by subclasses
-    protected virtual void OnHit(Transform ball)
+    protected virtual void OnHit(Transform ball, [CanBeNull] Transform paddle)
     {
-        Debug.Log($"Powerup '{name}' hit!");
+        // Debug.Log($"Powerup '{name}' hit!");
     }
 
     // Remove this powerup from the world

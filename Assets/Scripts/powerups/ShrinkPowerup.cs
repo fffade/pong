@@ -8,9 +8,9 @@ public class ShrinkPowerup : Powerup
     // How much to multiply the ball's radius by
     [SerializeField] private float shrinkMultiplier;
     
-    protected override void OnHit(Transform ball)
+    protected override void OnHit(Transform ball, Transform paddle)
     {
-        base.OnHit(ball);
+        base.OnHit(ball, paddle);
 
         BallSize ballSize = ball.GetComponent<BallSize>();
         

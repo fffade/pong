@@ -23,12 +23,19 @@ public class BallCollision : MonoBehaviour
         Debug.Log("Ball collided with: " + tag);
         
         // Reverse y velocity on colliding with border
-        if (tag == "Border")
+        if (tag == "SideBorder")
+        {
+            _movement.ReverseXDirection();
+        }
+        else if (tag == "Border")
         {
             _movement.ReverseYDirection();
         }
         else if (tag == "Paddle")
         {
+            // Track hit paddle
+            _movement.lastHitPaddle = collider.transform;
+            
             _movement.ReverseXDirection();
             
             // Calculate the contact point from the center of the paddle to determine y velocity bounce off

@@ -22,6 +22,9 @@ public class BallMovement : MonoBehaviour
     [SerializeField] private float acceleration = 0.1f;
 
     public Vector2 Direction { get; private set; }
+    
+    // The last paddle this ball was hit by
+    public Transform lastHitPaddle;
 
 
     void Awake()
