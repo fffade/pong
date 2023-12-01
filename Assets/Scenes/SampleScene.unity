@@ -530,6 +530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialRadius: 0.5
   currentRadiusModifier: 1
+  changeRadiusSpeed: 3
 --- !u!114 &187295315
 MonoBehaviour:
   m_ObjectHideFlags: 0

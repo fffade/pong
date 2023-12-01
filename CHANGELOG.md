@@ -11,10 +11,19 @@ Written by fffadedev.
 - New sounds:
 - &emsp;Paddle shrink
 - &emsp;Ball on fire
-- New animations:
-- &esmp;Paddle shrink
-- &emsp;Ball shrink
 - Earn stars at the end of each game
+
+## [v1.5.0] Pre-alpha, 2023-12-01
+
+### Added
+
+- New animations:
+- &emsp;Paddle shrink
+- &emsp;Ball shrink;
+
+### Changed
+
+- Powerups slightly larger
 
 ## [v1.4.0] Pre-alpha, 2023-12-01
 
@@ -54,6 +63,7 @@ Written by fffadedev.
 
 - [Back to top](#changelog)
 - [unreleased](#unreleased)
+- [1.5.0](#v1.5.0)
 - [1.4.0](#v1.4.0)
 - [1.3.0](#v1.3.0)
 - [1.2.0](#v1.2.0)

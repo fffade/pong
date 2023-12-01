@@ -11,6 +11,9 @@ public class PaddleSize : MonoBehaviour
     
     // The current modifier for the size of this paddle
     public float CurrentSizeModifier { get; private set; } = 1f;
+    
+    // The rate at which the paddle alters its size
+    [SerializeField] private float changeSizeSpeed;
 
 
     void Awake()
@@ -25,7 +28,13 @@ public class PaddleSize : MonoBehaviour
 
     void Update()
     {
-        _transform.localScale = new Vector3(_transform.localScale.x, InitialSize * CurrentSizeModifier,
+        float desiredLength = InitialSize * CurrentSizeModifier;
+        float currentLength = _transform.localScale.y;
+        
+        // Update size interpolated
+        float newLength = Mathf.Lerp(currentLength, desiredLength, changeSizeSpeed * Time.deltaTime);
+
+        _transform.localScale = new Vector3(_transform.localScale.x, newLength,
             _transform.localScale.z);
     }
     

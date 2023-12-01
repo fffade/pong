@@ -12,6 +12,9 @@ public class BallSize : MonoBehaviour
     // The current modifier for the ball's size
     [SerializeField] private float currentRadiusModifier = 1f;
     
+    // The rate the ball changes size
+    [SerializeField] private float changeRadiusSpeed;
+    
 
     void Awake()
     {
@@ -21,9 +24,13 @@ public class BallSize : MonoBehaviour
     void Update()
     {
         float desiredDiameter = initialRadius * currentRadiusModifier * 2f;
+        float currentDiameter = _transform.localScale.x;
+        
+        // Update diameter interpolated
+        float newDiameter = Mathf.Lerp(currentDiameter, desiredDiameter, changeRadiusSpeed * Time.deltaTime);
         
         // Update ball size each frame
-        _transform.localScale = new Vector3(desiredDiameter, desiredDiameter, _transform.localScale.z);
+        _transform.localScale = new Vector3(newDiameter, newDiameter, _transform.localScale.z);
     }
     
     /* Alters the modifier for the ball's radius */
