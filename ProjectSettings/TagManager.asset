@@ -10,6 +10,7 @@ TagManager:
   - ScoreUI
   - GameEndUI
   - Ball
+  - PauseMenuUI
   layers:
   - Default
   - TransparentFX
@@ -17,10 +18,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Paddle
+  - Ball
+  - Powerup
+  - Border
   - 
   - 
   - 

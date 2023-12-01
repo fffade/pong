@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3922242834308943703}
   - component: {fileID: 8163218737907920567}
   - component: {fileID: 5557453724906167846}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Side Border #1
   m_TagString: SideBorder
   m_Icon: {fileID: 0}

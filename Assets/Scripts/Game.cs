@@ -12,6 +12,11 @@ public class Game : MonoBehaviour
     private Scores _scores;
 
     private GameEndUI _gameEndUI;
+    private PauseMenuUI _pauseMenuUI;
+    
+    // Handles pausing
+    public bool IsPaused { get; private set; } = false;
+    private float _timeScaleBeforePause;
     
     // Spawner for powerups
     [SerializeField] private PowerupSpawning powerupSpawner;
@@ -40,6 +45,7 @@ public class Game : MonoBehaviour
         _scores = GetComponent<Scores>();
 
         _gameEndUI = GameObject.FindGameObjectWithTag("GameEndUI").GetComponent<GameEndUI>();
+        _pauseMenuUI = GameObject.FindGameObjectWithTag("PauseMenuUI").GetComponent<PauseMenuUI>();
 
         GameObject ball = GameObject.FindGameObjectWithTag("Ball");
         _ballMovement = ball.GetComponent<BallMovement>();
@@ -51,7 +57,36 @@ public class Game : MonoBehaviour
     {
         ResetAndStart();
     }
-    
+
+    void Update()
+    {
+        CheckInput();
+
+        if (IsPaused)
+        {
+            _pauseMenuUI.Show();
+        }
+        else
+        {
+            _pauseMenuUI.Hide();
+        }
+    }
+
+    /* Retrieve important game input */
+    private void CheckInput()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (!IsPaused)
+            {
+                Pause();
+            }
+            else
+            {
+                Resume();
+            }
+        }
+    }
     
     // Reset the game by resetting positions, score, etc.
     public void Restart()
@@ -143,5 +178,28 @@ public class Game : MonoBehaviour
         }
         
         End(winner);
+    }
+    
+    // Pause the game and game logic
+    public void Pause()
+    {
+        if (IsPaused)
+            return;
+
+        IsPaused = true;
+
+        _timeScaleBeforePause = Time.timeScale; // Track time scale for resuming
+        Time.timeScale = 0.0f;
+    }
+    
+    // Return game to normal speed
+    public void Resume()
+    {
+        if (!IsPaused)
+            return;
+
+        IsPaused = false;
+
+        Time.timeScale = _timeScaleBeforePause; // Return time to normal speed before pause
     }
 }

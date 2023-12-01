@@ -91,4 +91,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: paddle_shrink_powerup
+  hitAudio: {fileID: 8300000, guid: f713d2cbfc22fcf40aa8aec48ddfbc9f, type: 3}
   spawner: {fileID: 0}

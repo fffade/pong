@@ -8,6 +8,8 @@ public class BallCollision : MonoBehaviour
 
     private BallPaddleShrink _paddleShrink;
 
+    // Sound the ball plays when hitting something
+    [SerializeField] private AudioClip hitAudio;
 
     void Awake()
     {
@@ -21,6 +23,8 @@ public class BallCollision : MonoBehaviour
         string tag = collider.gameObject.tag;
         
         Debug.Log("Ball collided with: " + tag);
+        
+        GlobalAudio.Instance.PlayAudio(hitAudio);
         
         // Reverse y velocity on colliding with border
         if (tag == "SideBorder")
