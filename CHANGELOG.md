@@ -8,10 +8,24 @@ Written by fffadedev.
 
 ### Added
 
-- New sounds:
-- &emsp;Paddle shrink
-- &emsp;Ball on fire
-- Earn stars at the end of each game
+- Button to return to main menu when user is on pause/you win
+- Controls to mute or adjust audio on main menu screen
+
+### Fixed
+
+- Ball collides against 'side' of paddles properly
+
+## [v1.6.0] Pre-alpha, 2023-12-02
+
+### Added
+
+- Main menu!
+
+### Changed
+
+- New and sleek sans serif font
+- New look for you win screen
+- New look for buttons
 
 ## [v1.5.0] Pre-alpha, 2023-12-01
 
@@ -63,6 +77,7 @@ Written by fffadedev.
 
 - [Back to top](#changelog)
 - [unreleased](#unreleased)
+- [1.6.0](#v1.6.0)
 - [1.5.0](#v1.5.0)
 - [1.4.0](#v1.4.0)
 - [1.3.0](#v1.3.0)
