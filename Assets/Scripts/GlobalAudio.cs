@@ -7,6 +7,12 @@ public class GlobalAudio : MonoBehaviour
     public static GlobalAudio Instance { get; private set; }
 
     private AudioSource _audioSource;
+    
+    // Global audio level
+    public float volume = 1.0f;
+    
+    // Is audio globally muted
+    public bool isMuted = false;
 
     void Awake()
     {
@@ -24,9 +30,13 @@ public class GlobalAudio : MonoBehaviour
         Debug.Log("Global Audio Manager instantiated");
     }
     
+    
     // Plays an audio clip once, globally
-    public void PlayAudio(AudioClip audio)
+    public void PlayAudio(AudioClip audio, bool overrideMute = false)
     {
-        _audioSource.PlayOneShot(audio);
+        if (isMuted && !overrideMute)
+            return;
+        
+        _audioSource.PlayOneShot(audio, volume);
     }
 }

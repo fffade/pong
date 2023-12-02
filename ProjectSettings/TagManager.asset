@@ -11,6 +11,7 @@ TagManager:
   - GameEndUI
   - Ball
   - PauseMenuUI
+  - MainMenuButtonUI
   layers:
   - Default
   - TransparentFX

@@ -1,19 +1,22 @@
 # Changelog
 
 All notable changes to this project will be documented in this file.\
+This project is currently in Pre-alpha.\
 Written by fffadedev.
 
 
 ## [Unreleased]
 
-### Added
-
-- Button to return to main menu when user is on pause/you win
-- Controls to mute or adjust audio on main menu screen
-
 ### Fixed
 
 - Ball collides against 'side' of paddles properly
+
+## [v1.7.0] Pre-alpha, 2023-12-02
+
+### Added
+
+- Button to return to main menu on pause screen & game end screen
+- Audio mute + slider on main menu
 
 ## [v1.6.0] Pre-alpha, 2023-12-02
 
@@ -77,6 +80,7 @@ Written by fffadedev.
 
 - [Back to top](#changelog)
 - [unreleased](#unreleased)
+- [1.7.0](#v1.7.0)
 - [1.6.0](#v1.6.0)
 - [1.5.0](#v1.5.0)
 - [1.4.0](#v1.4.0)

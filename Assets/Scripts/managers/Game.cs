@@ -13,6 +13,7 @@ public class Game : MonoBehaviour
 
     private GameEndUI _gameEndUI;
     private PauseMenuUI _pauseMenuUI;
+    private MainMenuButtonUI _mainMenuButtonUI;
     
     // Handles pausing
     public bool IsPaused { get; private set; } = false;
@@ -46,6 +47,7 @@ public class Game : MonoBehaviour
 
         _gameEndUI = GameObject.FindGameObjectWithTag("GameEndUI").GetComponent<GameEndUI>();
         _pauseMenuUI = GameObject.FindGameObjectWithTag("PauseMenuUI").GetComponent<PauseMenuUI>();
+        _mainMenuButtonUI = GameObject.FindGameObjectWithTag("MainMenuButtonUI").GetComponent<MainMenuButtonUI>();
 
         GameObject ball = GameObject.FindGameObjectWithTag("Ball");
         _ballMovement = ball.GetComponent<BallMovement>();
@@ -98,6 +100,8 @@ public class Game : MonoBehaviour
         ResetPaddles();
 
         _gameEndUI.Hide();
+
+        _mainMenuButtonUI.Hide();
     }
     
     // Starts the game
@@ -143,6 +147,8 @@ public class Game : MonoBehaviour
         powerupSpawner.isSpawning = false;
         
         _gameEndUI.Show(winner);
+        
+        _mainMenuButtonUI.Show();
     }
     
     // Triggered when a border is hit by the pong ball
@@ -190,6 +196,8 @@ public class Game : MonoBehaviour
 
         _timeScaleBeforePause = Time.timeScale; // Track time scale for resuming
         Time.timeScale = 0.0f;
+
+        _mainMenuButtonUI.Show(); // Pausing enables option to return to main menu
     }
     
     // Return game to normal speed
@@ -201,5 +209,7 @@ public class Game : MonoBehaviour
         IsPaused = false;
 
         Time.timeScale = _timeScaleBeforePause; // Return time to normal speed before pause
+
+        _mainMenuButtonUI.Hide();
     }
 }
