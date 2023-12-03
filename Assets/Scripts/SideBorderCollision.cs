@@ -19,7 +19,7 @@ public class SideBorderCollision : MonoBehaviour
         _forcefield = GetComponent<Forcefield>();
     }
     
-    void OnTriggerEnter2D(Collider2D collider)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Side border " + side + " hit by ball");
 

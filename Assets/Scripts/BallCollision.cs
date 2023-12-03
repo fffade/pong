@@ -18,9 +18,9 @@ public class BallCollision : MonoBehaviour
         _paddleShrink = GetComponent<BallPaddleShrink>();
     }
     
-    void OnTriggerEnter2D(Collider2D collider)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        string tag = collider.gameObject.tag;
+        string tag = collision.gameObject.tag;
         
         Debug.Log("Ball collided with: " + tag);
         
@@ -38,19 +38,31 @@ public class BallCollision : MonoBehaviour
         else if (tag == "Paddle")
         {
             // Track hit paddle
-            _movement.lastHitPaddle = collider.transform;
-            
-            _movement.ReverseXDirection();
-            
-            // Calculate the contact point from the center of the paddle to determine y velocity bounce off
-            Vector2 contactPoint = collider.ClosestPoint(transform.position);
+            _movement.lastHitPaddle = collision.collider.transform;
 
-            Vector2 distanceFromCenter = (contactPoint - (Vector2)collider.bounds.center);
+            // Calculate the contact point from the center of the paddle to determine y velocity bounce off
+            Vector2 contactPoint = collision.collider.ClosestPoint(transform.position);
+
+            Vector2 distanceFromCenter = (contactPoint - (Vector2)collision.collider.bounds.center);
 
             _movement.AdjustYVelocity(Mathf.Abs(distanceFromCenter.y));
             
+            // Determine y velocity reverse
+            float distanceFromCenterX = Mathf.Abs(distanceFromCenter.x);
+            float extentDiff = Mathf.Abs(distanceFromCenterX - collision.collider.bounds.extents.x);
+            
+            // Check side of paddle hit
+            if (extentDiff > 0.05f)
+            {
+                _movement.ReverseYDirection();
+            }
+            else
+            {
+                _movement.ReverseXDirection();
+            }
+            
             // Check if paddle shrink is on from a picked up powerup
-            _paddleShrink.Check(collider.gameObject.transform);
+            _paddleShrink.Check(collision.collider.gameObject.transform);
         }
     }
 }

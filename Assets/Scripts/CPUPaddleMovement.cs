@@ -37,6 +37,14 @@ public class CPUPaddleMovement : MonoBehaviour
         
         IsMovingUp = ballDistance > ballDistanceThreshold && ball.position.y > _rigidbody.position.y;
         IsMovingDown = ballDistance > ballDistanceThreshold && ball.position.y < _rigidbody.position.y;
+        
+        // If the ball is BEHIND this paddle, then stop moving altogether
+        // This FIXES a bug where the ball will get stuck against the wall by the CPU
+        if (ball.position.x >= _rigidbody.position.x)
+        {
+            IsMovingUp = false;
+            IsMovingDown = false;
+        }
     }
     
     private void UpdateMovement()

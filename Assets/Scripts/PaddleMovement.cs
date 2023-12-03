@@ -35,6 +35,8 @@ public class PaddleMovement : MonoBehaviour
     
     private void UpdateMovement()
     {
+        _rigidbody.velocity = Vector2.zero;
+        
         if (IsMovingUp)
         {
             _rigidbody.MovePosition(_rigidbody.position + Vector2.up * (speed * Time.fixedDeltaTime));

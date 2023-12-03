@@ -97,7 +97,11 @@ public class Game : MonoBehaviour
 
         ResetBall();
 
-        ResetPaddles();
+        ResetPaddles(); // Only resets position/size
+        
+        // Every new game reset paddle forcefield uses
+        paddle1.GetComponent<PaddleForcefield>().ResetUses();
+        paddle2.GetComponent<PaddleForcefield>().ResetUses();
 
         _gameEndUI.Hide();
 

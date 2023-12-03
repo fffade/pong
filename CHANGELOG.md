@@ -4,8 +4,20 @@ All notable changes to this project will be documented in this file.\
 This project is currently in Pre-alpha.\
 Written by fffadedev.
 
-
 ## [Unreleased]
+
+### Added
+
+- New sounds:
+- &emsp;GUI button click
+- New animations:
+- &emsp;Ball on fire
+
+## [v1.8.0] Pre-alpha, 2023-12-03
+
+### Added
+
+- Forcefield counter for player and CPU
 
 ### Fixed
 
@@ -80,6 +92,7 @@ Written by fffadedev.
 
 - [Back to top](#changelog)
 - [unreleased](#unreleased)
+- [1.8.0](#v1.8.0)
 - [1.7.0](#v1.7.0)
 - [1.6.0](#v1.6.0)
 - [1.5.0](#v1.5.0)

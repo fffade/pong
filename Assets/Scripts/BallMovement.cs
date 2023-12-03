@@ -83,7 +83,7 @@ public class BallMovement : MonoBehaviour
 
         float xVelocity = (1f - Mathf.Abs(yVelocity)) * (Direction.x < 0f ? -1f : 1f); // X needs to remain consistent based on y
 
-        Direction = new Vector2(xVelocity, yVelocity);
+        Direction = new Vector2(xVelocity, yVelocity).normalized;
     }
     
     // Sets movement to zero
