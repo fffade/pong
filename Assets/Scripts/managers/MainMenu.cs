@@ -10,6 +10,19 @@ public class MainMenu : MonoBehaviour
 {
     /* Handles the main menu loop */
 
+    private HelpMenuUI _helpMenuUI;
+
+
+    void Awake()
+    {
+        _helpMenuUI = GameObject.FindGameObjectWithTag("HelpMenuUI").GetComponent<HelpMenuUI>();
+    }
+
+    void Start()
+    {
+        _helpMenuUI.Hide();
+    }
+
     // Enters the game via a new scene
     public void PlayGame()
     {

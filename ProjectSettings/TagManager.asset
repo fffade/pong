@@ -13,6 +13,7 @@ TagManager:
   - PauseMenuUI
   - MainMenuButtonUI
   - ErrorUI
+  - HelpMenuUI
   layers:
   - Default
   - TransparentFX

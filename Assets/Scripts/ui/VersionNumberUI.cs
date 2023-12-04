@@ -12,9 +12,11 @@ public class VersionNumberUI : MonoBehaviour
 
     [SerializeField] private BuildNumber buildNumber;
 
+    [SerializeField] private string stage;
+
 
     void Update()
     {
-        versionNumberText.SetText($"Version {Application.version} build {buildNumber.build}");
+        versionNumberText.SetText($"{stage} Version {Application.version} build {buildNumber.build}");
     }
 }
