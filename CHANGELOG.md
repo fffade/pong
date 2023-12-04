@@ -4,12 +4,14 @@ All notable changes to this project will be documented in this file.\
 This project is currently in Pre-alpha.\
 Written by fffadedev.
 
-## [Unreleased]
+## [v1.10.0] Pre-alpha, 2023-12-04
 
 ### Added
 
 - New sounds:
 - &emsp;GUI button click
+- &emsp;Point earned
+- Known error message screen may pop up
 
 ## [v1.9.0] Pre-alpha, 2023-12-03
 
@@ -98,6 +100,7 @@ Written by fffadedev.
 
 - [Back to top](#changelog)
 - [unreleased](#unreleased)
+- [1.10.0](#v1.10.0)
 - [1.9.0](#v1.9.0)
 - [1.8.0](#v1.8.0)
 - [1.7.0](#v1.7.0)

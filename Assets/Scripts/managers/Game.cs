@@ -14,6 +14,7 @@ public class Game : MonoBehaviour
     private GameEndUI _gameEndUI;
     private PauseMenuUI _pauseMenuUI;
     private MainMenuButtonUI _mainMenuButtonUI;
+    private ErrorUI _errorUI;
     
     // Handles pausing
     public bool IsPaused { get; private set; } = false;
@@ -48,6 +49,7 @@ public class Game : MonoBehaviour
         _gameEndUI = GameObject.FindGameObjectWithTag("GameEndUI").GetComponent<GameEndUI>();
         _pauseMenuUI = GameObject.FindGameObjectWithTag("PauseMenuUI").GetComponent<PauseMenuUI>();
         _mainMenuButtonUI = GameObject.FindGameObjectWithTag("MainMenuButtonUI").GetComponent<MainMenuButtonUI>();
+        _errorUI = GameObject.FindGameObjectWithTag("ErrorUI").GetComponent<ErrorUI>();
 
         GameObject ball = GameObject.FindGameObjectWithTag("Ball");
         _ballMovement = ball.GetComponent<BallMovement>();
@@ -103,8 +105,9 @@ public class Game : MonoBehaviour
         paddle1.GetComponent<PaddleForcefield>().ResetUses();
         paddle2.GetComponent<PaddleForcefield>().ResetUses();
 
+        // Hide UI panels
+        _errorUI.Hide();
         _gameEndUI.Hide();
-
         _mainMenuButtonUI.Hide();
     }
     

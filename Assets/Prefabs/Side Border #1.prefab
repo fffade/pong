@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   side: 1
+  hitAudio: {fileID: 8300000, guid: e225a9c4059b20f48abb00e5381f64fd, type: 3}
 --- !u!114 &5557453724906167846
 MonoBehaviour:
   m_ObjectHideFlags: 0

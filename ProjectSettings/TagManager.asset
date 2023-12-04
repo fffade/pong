@@ -12,6 +12,7 @@ TagManager:
   - Ball
   - PauseMenuUI
   - MainMenuButtonUI
+  - ErrorUI
   layers:
   - Default
   - TransparentFX

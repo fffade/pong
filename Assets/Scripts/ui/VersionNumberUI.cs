@@ -15,6 +15,6 @@ public class VersionNumberUI : MonoBehaviour
 
     void Update()
     {
-        versionNumberText.SetText($"Version {PlayerSettings.bundleVersion} build {buildNumber.build}");
+        versionNumberText.SetText($"Version {Application.version} build {buildNumber.build}");
     }
 }

@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using Vector2 = UnityEngine.Vector2;
 
 public class BallMovement : MonoBehaviour
 {
@@ -25,6 +27,11 @@ public class BallMovement : MonoBehaviour
     
     // The last paddle this ball was hit by
     public Transform lastHitPaddle;
+    
+    // Distance moved since last stop
+    private float _distanceTraveledTimer;
+    public float DistanceTraveled { get; private set; }
+    public Vector2 LastPosition { get; private set; }
 
 
     void Awake()
@@ -39,11 +46,50 @@ public class BallMovement : MonoBehaviour
         CurrentSpeed = initialSpeed;
     }
 
+    void Update()
+    {
+        // Track distance traveled
+        DistanceTraveled += (LastPosition - _rigidbody.position).magnitude;
+
+        _distanceTraveledTimer += Time.deltaTime;
+
+        if (_distanceTraveledTimer >= 3f)
+        {
+            _distanceTraveledTimer = 0f;
+            DistanceTraveled = 0f;
+        }
+        else
+        {
+            CheckStuckError();
+        }
+
+    }
+
     void FixedUpdate()
     {
         UpdateMovement();
     }
 
+    void LateUpdate()
+    {
+        LastPosition = _rigidbody.position;
+    }
+    
+    // Checks for known error
+    private void CheckStuckError()
+    {
+        // KNOWN BUG: Ball sometimes gets stuck by CPU against wall
+        if (!Direction.Equals(Vector2.zero) && DistanceTraveled is (<= 0.01f and > 0f))
+        {
+            Debug.LogWarning("Ball is stuck with " + DistanceTraveled + " distance made, direction is " + Direction + ", speed is " + CurrentSpeed + ", rigidbody velocity is " + _rigidbody.velocity);
+
+            string logFile = "%USERPROFILE%\\AppData\\LocalLow\\fffadedev\\Pong\\Player.log";
+            
+            GameObject.FindGameObjectWithTag("ErrorUI").GetComponent<ErrorUI>().Show($"Please send your game logs stored at '{logFile}' as well as a screenshot of this error to the developer. Thank you!");
+        }
+    }
+    
+    // Update ball velocity based on current speed
     private void UpdateMovement()
     {
         CurrentSpeed += acceleration;
@@ -51,6 +97,7 @@ public class BallMovement : MonoBehaviour
         Vector2 movement = Direction * (CurrentSpeed * _ballFire.BallSpeedModifier);
 
         _rigidbody.velocity = movement * Time.fixedDeltaTime;
+
     }
 
     // Sets this ball's direction to a random one using an angle from 0-360 randomly generated
@@ -93,6 +140,8 @@ public class BallMovement : MonoBehaviour
         CurrentSpeed = initialSpeed;
 
         _ballFire.ResetFire();
+
+        DistanceTraveled = 0f;
     }
     
     // Moves ball to a position
