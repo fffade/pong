@@ -21,9 +21,7 @@ public class BallCollision : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         string tag = collision.gameObject.tag;
-        
-        Debug.Log("Ball collided with: " + tag);
-        
+
         GlobalAudio.Instance.PlayAudio(hitAudio);
         
         // Reverse y velocity on colliding with border

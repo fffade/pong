@@ -21,7 +21,6 @@ public class SideBorderCollision : MonoBehaviour
     
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Side border " + side + " hit by ball");
 
         if (!_forcefield.IsActive)
         {

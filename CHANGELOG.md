@@ -10,8 +10,14 @@ Written by fffadedev.
 
 - New sounds:
 - &emsp;GUI button click
+
+## [v1.9.0] Pre-alpha, 2023-12-03
+
+### Added
+
 - New animations:
-- &emsp;Ball on fire
+- &emsp;Ball on fire turns red and spins
+- Version number shown on main menu
 
 ## [v1.8.0] Pre-alpha, 2023-12-03
 
@@ -92,6 +98,7 @@ Written by fffadedev.
 
 - [Back to top](#changelog)
 - [unreleased](#unreleased)
+- [1.9.0](#v1.9.0)
 - [1.8.0](#v1.8.0)
 - [1.7.0](#v1.7.0)
 - [1.6.0](#v1.6.0)
