@@ -284,7 +284,6 @@ GameObject:
   - component: {fileID: 92700093}
   - component: {fileID: 92700097}
   - component: {fileID: 92700096}
-  - component: {fileID: 92700095}
   - component: {fileID: 92700094}
   m_Layer: 5
   m_Name: Error Panel
@@ -327,20 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f74634124e93ec546b41303369568849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  errorText: {fileID: 0}
---- !u!114 &92700095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 92700092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ea775674b7c3c44ab723dc33594c082, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  winnerText: {fileID: 7372992}
+  errorText: {fileID: 646588842}
 --- !u!114 &92700096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -690,6 +676,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yVelocityClamp: 0.7
+  minInitialAngle: 45
+  maxInitialAngle: -45
   initialSpeed: 1000
   acceleration: 0.25
   lastHitPaddle: {fileID: 0}

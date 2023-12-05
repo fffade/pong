@@ -8,6 +8,9 @@ using Vector2 = UnityEngine.Vector2;
 
 public class BallMovement : MonoBehaviour
 {
+
+    private ErrorUI _errorUI;
+    
     private Rigidbody2D _rigidbody;
 
     private BallFire _ballFire;
@@ -15,7 +18,10 @@ public class BallMovement : MonoBehaviour
     
     // How much y direction can be used when hitting with paddle
     [SerializeField] private float yVelocityClamp = 0.5f;
-    
+
+    [SerializeField] private float minInitialAngle,
+                                    maxInitialAngle;
+
     [SerializeField] private float initialSpeed;
 
     public float CurrentSpeed { get; private set; } 
@@ -36,6 +42,8 @@ public class BallMovement : MonoBehaviour
 
     void Awake()
     {
+        _errorUI = GameObject.FindGameObjectWithTag("ErrorUI").GetComponent<ErrorUI>();
+        
         _rigidbody = GetComponent<Rigidbody2D>();
 
         _ballFire = GetComponent<BallFire>();
@@ -85,7 +93,7 @@ public class BallMovement : MonoBehaviour
 
             string logFile = "%USERPROFILE%\\AppData\\LocalLow\\fffadedev\\Pong\\Player.log";
             
-            GameObject.FindGameObjectWithTag("ErrorUI").GetComponent<ErrorUI>().Show($"Please send your game logs stored at '{logFile}' as well as a screenshot of this error to the developer. Thank you!");
+            _errorUI.Show($"Please send your game logs stored at '{logFile}' as well as a screenshot of this error to the developer. Thank you!");
         }
     }
     
@@ -103,12 +111,17 @@ public class BallMovement : MonoBehaviour
     // Sets this ball's direction to a random one using an angle from 0-360 randomly generated
     public void RandomDirection()
     {
-        float randomAngle = Random.Range(0f, 360f);
+        
+        // Bug fix: Launch is clamped between this angle TOWARD POSITIVE X
+        float randomAngle = Random.Range(minInitialAngle, maxInitialAngle);
 
+        int xDirection = Random.Range(0, 2) == 0 ? 1 : -1;
+        
         Direction = new Vector2(
-            Mathf.Cos(Mathf.Deg2Rad * randomAngle),
+            xDirection * Mathf.Cos(Mathf.Deg2Rad * randomAngle),
             Mathf.Sin(Mathf.Deg2Rad * randomAngle)
         );
+        
     }
     
     // Reverses y direction to go up instead of down or vice versa

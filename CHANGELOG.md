@@ -6,6 +6,12 @@ Written by fffadedev.
 
 ## [Unreleased]
 
+## [v1.1.1] Alpha, 2023-12-04
+
+### Fixed
+
+- Ball shooting straight up or down on round start
+
 ## [v1.1.0] Alpha, 2023-12-04
 
 ### Added
@@ -20,4 +26,5 @@ Written by fffadedev.
 
 - [Back to top](#changelog)
 - [unreleased](#unreleased)
+- [1.1.1](#v1.1.1)
 - [1.1.0](#v1.1.0)
