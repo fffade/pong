@@ -87,13 +87,16 @@ public class BallMovement : MonoBehaviour
     private void CheckStuckError()
     {
         // KNOWN BUG: Ball sometimes gets stuck by CPU against wall
+        // Temporary fix
         if (!Direction.Equals(Vector2.zero) && DistanceTraveled is (<= 0.01f and > 0f))
         {
             Debug.LogWarning("Ball is stuck with " + DistanceTraveled + " distance made, direction is " + Direction + ", speed is " + CurrentSpeed + ", rigidbody velocity is " + _rigidbody.velocity);
 
-            string logFile = "%USERPROFILE%\\AppData\\LocalLow\\fffadedev\\Pong\\Player.log";
+            // string logFile = $"{Application.persistentDataPath}\\Player.log";
+            //
+            // _errorUI.Show($"Please send your game logs stored at '{logFile}' as well as a screenshot of this error to the developer. Thank you!");
             
-            _errorUI.Show($"Please send your game logs stored at '{logFile}' as well as a screenshot of this error to the developer. Thank you!");
+            _rigidbody.MovePosition(_rigidbody.position + (Vector2.zero - _rigidbody.position).normalized * 2f);
         }
     }
     
@@ -105,7 +108,7 @@ public class BallMovement : MonoBehaviour
         Vector2 movement = Direction * (CurrentSpeed * _ballFire.BallSpeedModifier);
 
         _rigidbody.velocity = movement * Time.fixedDeltaTime;
-
+        
     }
 
     // Sets this ball's direction to a random one using an angle from 0-360 randomly generated

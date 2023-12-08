@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7671825780443993216}
   - component: {fileID: 4208716663943860503}
   - component: {fileID: 9035296226286435752}
+  - component: {fileID: 7198810311074346156}
   m_Layer: 6
   m_Name: Player Paddle
   m_TagString: Paddle
@@ -205,3 +206,16 @@ MonoBehaviour:
   activateKey: 102
   defaultUses: 0
   uses: 0
+--- !u!114 &7198810311074346156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3366302905726832398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb5a07833314b84ca0dde72c64632ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paddleRenderer: {fileID: 8756185491951883921}

@@ -10,12 +10,16 @@ public class Game : MonoBehaviour
     /* Handles the game loop */
 
     private Scores _scores;
+    private CoinDistributor _coinDistributor;
 
     private GameEndUI _gameEndUI;
     private PauseMenuUI _pauseMenuUI;
+    private ShopUI _shopUI;
     private MainMenuButtonUI _mainMenuButtonUI;
+    private ShopButtonUI _shopButtonUI;
+    private CoinsUI _coinsUI;
     private ErrorUI _errorUI;
-    
+
     // Handles pausing
     public bool IsPaused { get; private set; } = false;
     private float _timeScaleBeforePause;
@@ -41,14 +45,21 @@ public class Game : MonoBehaviour
     // How long to wait before launching the ball after spawning
     [SerializeField] private float ballLaunchDelay = 2f;
 
+    // If a game is running right now
+    public bool IsMidGame { get; private set; }
+
     
     void Awake()
     {
         _scores = GetComponent<Scores>();
+        _coinDistributor = GetComponent<CoinDistributor>();
 
         _gameEndUI = GameObject.FindGameObjectWithTag("GameEndUI").GetComponent<GameEndUI>();
         _pauseMenuUI = GameObject.FindGameObjectWithTag("PauseMenuUI").GetComponent<PauseMenuUI>();
+        _shopUI = GameObject.FindGameObjectWithTag("ShopUI").GetComponent<ShopUI>();
         _mainMenuButtonUI = GameObject.FindGameObjectWithTag("MainMenuButtonUI").GetComponent<MainMenuButtonUI>();
+        _shopButtonUI = GameObject.FindGameObjectWithTag("ShopButtonUI").GetComponent<ShopButtonUI>();
+        _coinsUI = GameObject.FindGameObjectWithTag("CoinUI").GetComponent<CoinsUI>();
         _errorUI = GameObject.FindGameObjectWithTag("ErrorUI").GetComponent<ErrorUI>();
 
         GameObject ball = GameObject.FindGameObjectWithTag("Ball");
@@ -79,7 +90,7 @@ public class Game : MonoBehaviour
     /* Retrieve important game input */
     private void CheckInput()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) && IsMidGame)
         {
             if (!IsPaused)
             {
@@ -109,6 +120,10 @@ public class Game : MonoBehaviour
         _errorUI.Hide();
         _gameEndUI.Hide();
         _mainMenuButtonUI.Hide();
+        _shopButtonUI.Hide();
+        _coinsUI.Hide();
+        _shopUI.Hide();
+
     }
     
     // Starts the game
@@ -117,6 +132,8 @@ public class Game : MonoBehaviour
         _ballMovement.Invoke(nameof(_ballMovement.RandomDirection), ballLaunchDelay);
         
         powerupSpawner.isSpawning = true;
+
+        IsMidGame = true;
     }
     
     // Resets and starts the game at once
@@ -150,12 +167,20 @@ public class Game : MonoBehaviour
     // Ends the game, displaying the final UI with the winner
     public void End(int winner)
     {
+        IsMidGame = false;
+        
         powerupSpawner.ClearPowerups();
         powerupSpawner.isSpawning = false;
         
-        _gameEndUI.Show(winner);
+        _coinDistributor.GenerateDistribution(); // Determines how many coins player earned
         
+        _gameEndUI.Show(winner);
+
+        _coinsUI.Show();
+
         _mainMenuButtonUI.Show();
+
+        _shopButtonUI.Show();
     }
     
     // Triggered when a border is hit by the pong ball
@@ -205,6 +230,8 @@ public class Game : MonoBehaviour
         Time.timeScale = 0.0f;
 
         _mainMenuButtonUI.Show(); // Pausing enables option to return to main menu
+
+        _shopButtonUI.Show();
     }
     
     // Return game to normal speed
@@ -218,5 +245,10 @@ public class Game : MonoBehaviour
         Time.timeScale = _timeScaleBeforePause; // Return time to normal speed before pause
 
         _mainMenuButtonUI.Hide();
+
+        _shopButtonUI.Hide();
+        _shopUI.Hide();
+
+        _coinsUI.Hide();
     }
 }
