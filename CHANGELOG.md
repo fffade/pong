@@ -6,6 +6,25 @@ Written by fffadedev.
 
 ## [Unreleased]
 
+### Added
+- New sounds:
+- &emsp;Forcefield used
+- &emsp;Difficulty level changed
+- New animations:
+- &emsp;Powerup background
+- &emsp;Ball on fire background
+
+## [v1.3.0] Alpha, 2023-12-11
+
+### Added
+
+- Changing difficulty levels on the main menu
+- &emsp;Rookie (easy) and Casual (normal)
+
+### Fixed
+
+- Pausing and exiting to the main menu stopped game time from moving forward if player tried to play again
+
 ## [v1.2.0] Alpha, 2023-12-08
 
 ### Added
@@ -35,6 +54,7 @@ Written by fffadedev.
 
 - [Back to top](#changelog)
 - [unreleased](#unreleased)
+- [1.3.0](#v1.3.0)
 - [1.2.0](#v1.2.0)
 - [1.1.1](#v1.1.1)
 - [1.1.0](#v1.1.0)

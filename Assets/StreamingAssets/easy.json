@@ -1,0 +1,15 @@
+{
+  "uniqueName": "rookie",
+  "coinBonusIndex": 0,
+  "speed": 10.0,
+  "ballDistanceThreshold": 1,
+  "curveDistanceThreshold": {
+    "x": 999,
+    "y": 999
+  },
+  "curveAmount": 0,
+  "forcefieldSpeedThreshold": 1500,
+  "forcefieldDistanceThreshold": 3,
+  "wallBufferYDirectionThreshold": 999,
+  "wallBufferAmount": 0
+}

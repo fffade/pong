@@ -21,7 +21,10 @@ public class Skins : MonoBehaviour
         Data = new SkinData(new List<int>());
         
         _filePath = Application.persistentDataPath + "/" + fileName;
-        
+    }
+
+    void Start()
+    {
         // Read existing saved data
         // If accessible
         if (File.Exists(_filePath))

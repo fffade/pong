@@ -1,0 +1,15 @@
+{
+  "uniqueName": "casual",
+  "coinBonusIndex": 1,
+  "speed": 11.5,
+  "ballDistanceThreshold": 0.25,
+  "curveDistanceThreshold": {
+    "x": 1.5,
+    "y": 0.7
+  },
+  "curveAmount": 1,
+  "forcefieldSpeedThreshold": 2000,
+  "forcefieldDistanceThreshold": 2,
+  "wallBufferYDirectionThreshold": 0.4,
+  "wallBufferAmount": 2
+}

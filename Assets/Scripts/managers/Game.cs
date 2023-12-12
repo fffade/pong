@@ -251,4 +251,11 @@ public class Game : MonoBehaviour
 
         _coinsUI.Hide();
     }
+    
+    // Return game to normal speed when leaving this scene
+    public void OnDestroy()
+    {
+        Time.timeScale = 1f;
+        _timeScaleBeforePause = 1f;
+    }
 }

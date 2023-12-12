@@ -13,11 +13,16 @@ public class CoinDistributor : MonoBehaviour
     private Scores _scores;
     private Coins _coins;
     
+    private CPUPaddleMovement _cpuPaddleMovement;
+    
     // Amounts that can be earned
     [SerializeField] private int winnerAmount,
                                 loserAmount,
                                 flawlessWinAmount;
     
+    // Amounts that are earned based on difficulty
+    [SerializeField] private int[] coinBonuses;
+
     // The last generated coin entries
     public List<CoinsEarnedEntry> Entries { get; private set; }
 
@@ -26,6 +31,8 @@ public class CoinDistributor : MonoBehaviour
     {
         _scores = GetComponent<Scores>();
         _coins = GetComponent<Coins>();
+
+        _cpuPaddleMovement = GameObject.FindFirstObjectByType<CPUPaddleMovement>();
     }
     
     /* Uses the winner / scores to generate coins earned entries */
@@ -51,6 +58,12 @@ public class CoinDistributor : MonoBehaviour
                 flawlessWinAmount
             ));
         }
+        
+        // Earn extra points based on difficulty
+        Entries.Add(new CoinsEarnedEntry(
+            $"Difficulty ({_cpuPaddleMovement.Settings.uniqueName})",
+            coinBonuses[_cpuPaddleMovement.Settings.coinBonusIndex]
+        ));
         
         // Apply total earned coins to the user coins
         _coins.Data.playerCoins += GetDistributionTotal();

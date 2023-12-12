@@ -6,7 +6,7 @@ public class PaddleForcefield : MonoBehaviour
 {
     /* Allows a paddle to control its respective forcefield */
 
-    [SerializeField] private Forcefield forcefield;
+    [SerializeField] public Forcefield forcefield;
     
     // The key (if applicable) to activate the forcefield
     // A keycode of DELETE means none
