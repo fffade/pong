@@ -1425,6 +1425,7 @@ GameObject:
   - component: {fileID: 998861929}
   - component: {fileID: 998861928}
   - component: {fileID: 998861930}
+  - component: {fileID: 998861931}
   m_Layer: 5
   m_Name: Difficulty Level Text
   m_TagString: Untagged
@@ -1604,6 +1605,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &998861931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998861926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f029f7e94e39ca24d814a3ebd6071110, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickAudio: {fileID: 8300000, guid: a27a233c56d3a0841b47113d42f0a048, type: 3}
 --- !u!1001 &1080562697
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3617,7 +3631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be51f15d06773a14eafd51ba4722f6e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  build: 5
+  build: 1
 --- !u!114 &2034282678
 MonoBehaviour:
   m_ObjectHideFlags: 0

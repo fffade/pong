@@ -13,6 +13,11 @@ public class Forcefield : MonoBehaviour
     private float _timer;
     // How long this forcefield lasts once turned on
     [SerializeField] private float activeTime;
+    
+    // Activation sound effect
+    // Constant sound effect while on
+    [SerializeField] private AudioClip activateAudio,
+                                            stayAudio;
 
 
     void Awake()
@@ -30,9 +35,10 @@ public class Forcefield : MonoBehaviour
             if (_timer >= activeTime)
             {
                 IsActive = false;
+                GlobalAudio.Instance.StopLoopAudio(stayAudio);
             }
         }
-        
+
         _animator.SetBool("IsActive", IsActive);
     }
     
@@ -44,6 +50,9 @@ public class Forcefield : MonoBehaviour
 
         _timer = 0;
         IsActive = true;
+        
+        GlobalAudio.Instance.PlayAudio(activateAudio);
+        GlobalAudio.Instance.PlayLoopAudio(stayAudio);
     }
     
     

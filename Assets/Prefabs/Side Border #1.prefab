@@ -181,3 +181,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeTime: 2
+  activateAudio: {fileID: 8300000, guid: 2e4226f3d7c6e6c42b24bdba66aa49b1, type: 3}
+  stayAudio: {fileID: 8300000, guid: 81af7597f0efe324bbd9cfb6215f03fb, type: 3}

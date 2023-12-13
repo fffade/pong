@@ -6,9 +6,11 @@ Written by fffadedev.
 
 ## [Unreleased]
 
+## [v1.3.1] Alpha, 2023-12-13
+
 ### Added
 - New sounds:
-- &emsp;Forcefield used
+- &emsp;Forcefield active
 - &emsp;Difficulty level changed
 - New animations:
 - &emsp;Powerup background
@@ -54,6 +56,7 @@ Written by fffadedev.
 
 - [Back to top](#changelog)
 - [unreleased](#unreleased)
+- [1.3.1](#v1.3.1)
 - [1.3.0](#v1.3.0)
 - [1.2.0](#v1.2.0)
 - [1.1.1](#v1.1.1)

@@ -1,8 +1,7 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
 using UnityEngine;
+using Quaternion = UnityEngine.Quaternion;
 using Random = UnityEngine.Random;
 using Vector2 = UnityEngine.Vector2;
 
@@ -12,6 +11,8 @@ public class BallMovement : MonoBehaviour
     private ErrorUI _errorUI;
     
     private Rigidbody2D _rigidbody;
+
+    private Transform _transform;
 
     private BallFire _ballFire;
     
@@ -24,13 +25,17 @@ public class BallMovement : MonoBehaviour
 
     [SerializeField] private float initialSpeed;
 
-    public float CurrentSpeed { get; private set; } 
+    public float CurrentSpeed { get; private set; }
 
     // Ball changes speed over time
     [SerializeField] private float acceleration = 0.1f;
 
     public Vector2 Direction { get; private set; }
-    
+
+    public float TargetRotation => Vector2.SignedAngle(Vector2.down, Direction);
+
+    [SerializeField] private float rotationSpeed;
+
     // The last paddle this ball was hit by
     public Transform lastHitPaddle;
     
@@ -45,6 +50,8 @@ public class BallMovement : MonoBehaviour
         _errorUI = GameObject.FindGameObjectWithTag("ErrorUI").GetComponent<ErrorUI>();
         
         _rigidbody = GetComponent<Rigidbody2D>();
+
+        _transform = transform;
 
         _ballFire = GetComponent<BallFire>();
     }
@@ -70,12 +77,12 @@ public class BallMovement : MonoBehaviour
         {
             CheckStuckError();
         }
-
     }
 
     void FixedUpdate()
     {
         UpdateMovement();
+        UpdateRotation();
     }
 
     void LateUpdate()
@@ -98,6 +105,17 @@ public class BallMovement : MonoBehaviour
             
             _rigidbody.MovePosition(_rigidbody.position + (Vector2.zero - _rigidbody.position).normalized * 2f);
         }
+    }
+    
+    // Update rotation of ball toward direction
+    private void UpdateRotation()
+    {
+        Debug.Log($"{_rigidbody.rotation} -> {TargetRotation}");
+        
+        float newRotation = Mathf.Lerp(_rigidbody.rotation, TargetRotation,
+            Time.fixedDeltaTime * rotationSpeed);
+
+        _rigidbody.rotation = newRotation;
     }
     
     // Update ball velocity based on current speed

@@ -5,7 +5,8 @@ using UnityEngine;
 /* Activating ball fire increases the ball's speed with a burst and then gradually over time */
 public class BallFire : MonoBehaviour
 {
-    private Animator _animator;
+    [SerializeField]private Animator animator;
+    
     // If the ball is currently on fire
     public bool IsActive { get; private set; } = false;
     
@@ -21,12 +22,9 @@ public class BallFire : MonoBehaviour
     // How often speed is gained while on fire
     private float _gradualSpeedTimer = 0f;
     [SerializeField] private float gradualSpeedRate;
-
-
-    void Awake()
-    {
-        _animator = GetComponentInChildren<Animator>();
-    }
+    
+    // The extra sprite to turn on when on fire
+    [SerializeField] private SpriteRenderer fireSpriteRenderer;
 
 
 
@@ -45,9 +43,11 @@ public class BallFire : MonoBehaviour
                 _gradualSpeedTimer = 0f;
             }
         }
+
+        fireSpriteRenderer.enabled = IsActive;
         
         // Ball being on fire uses an animation + new sprite
-        _animator.SetBool("IsOnFire", IsActive);
+        animator.SetBool("IsOnFire", IsActive);
     }
     
     // Activates fire when its off
