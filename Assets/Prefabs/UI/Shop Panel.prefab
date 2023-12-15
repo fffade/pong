@@ -581,6 +581,9 @@ GameObject:
   - component: {fileID: 4177891150575308479}
   - component: {fileID: 4018455211338660948}
   - component: {fileID: 3923605651672575242}
+  - component: {fileID: 7552471356329199169}
+  - component: {fileID: 5551216345392128511}
+  - component: {fileID: 6092507876104346108}
   m_Layer: 5
   m_Name: Available Skins
   m_TagString: Untagged
@@ -688,6 +691,57 @@ MonoBehaviour:
   iconSprite: {fileID: 21300000, guid: 9fa6be39417c5b24c8d0c9c2d6579c1d, type: 3}
   paddleSprite: {fileID: 21300000, guid: 790e9a334ff425f4bb372e22eeed904b, type: 3}
   coinPrice: 10
+--- !u!114 &7552471356329199169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214371457807209221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa37da26ec8d60f4db6817c433fd781a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 5
+  displayName: Auburn Night
+  iconSprite: {fileID: 21300000, guid: 645c9aea79d7d424ca05899f65e77419, type: 3}
+  paddleSprite: {fileID: 21300000, guid: 28f91b7b64c62a24aac3d1353ec3d3ea, type: 3}
+  coinPrice: 25
+--- !u!114 &5551216345392128511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214371457807209221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa37da26ec8d60f4db6817c433fd781a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 5
+  displayName: Peppermint
+  iconSprite: {fileID: 21300000, guid: 416d4f6498173f343b09e5421a946df8, type: 3}
+  paddleSprite: {fileID: 21300000, guid: 9ab9c5c7ecbd4d94b98a637d912b50e4, type: 3}
+  coinPrice: 25
+--- !u!114 &6092507876104346108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214371457807209221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa37da26ec8d60f4db6817c433fd781a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 6
+  displayName: Smiley
+  iconSprite: {fileID: 21300000, guid: f2734c0473a0fe74baaa9b9bfc500ca5, type: 3}
+  paddleSprite: {fileID: 21300000, guid: 7245f79a2d6cac64b96334f80fc0336d, type: 3}
+  coinPrice: 30
 --- !u!1 &3313929531754622916
 GameObject:
   m_ObjectHideFlags: 0

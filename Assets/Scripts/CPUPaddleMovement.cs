@@ -12,6 +12,9 @@ public class CPUPaddleMovement : MonoBehaviour
     private PaddleForcefield _forcefield;
 
     private Difficulty _difficulty;
+
+
+    [SerializeField] private float movementSmoothingThreshold;
     
 
     // The ball to reference when moving
@@ -79,6 +82,11 @@ public class CPUPaddleMovement : MonoBehaviour
             targetY = Mathf.Clamp(targetY, yClamp.y, yClamp.x);
             
             // Debug.Log("Wall buffer: " + targetY);
+        }
+        
+        if (Mathf.Abs(targetY - _rigidbody.position.y) <= movementSmoothingThreshold)
+        {
+            _rigidbody.position = new Vector2(_rigidbody.position.x, targetY);
         }
 
         IsMovingUp = ballDistance > Settings.ballDistanceThreshold && targetY > _rigidbody.position.y;

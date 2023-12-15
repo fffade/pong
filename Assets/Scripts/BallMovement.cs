@@ -110,7 +110,7 @@ public class BallMovement : MonoBehaviour
     // Update rotation of ball toward direction
     private void UpdateRotation()
     {
-        Debug.Log($"{_rigidbody.rotation} -> {TargetRotation}");
+        // Debug.Log($"{_rigidbody.rotation} -> {TargetRotation}");
         
         float newRotation = Mathf.Lerp(_rigidbody.rotation, TargetRotation,
             Time.fixedDeltaTime * rotationSpeed);

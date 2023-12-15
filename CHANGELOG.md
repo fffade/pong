@@ -6,6 +6,17 @@ Written by fffadedev.
 
 ## [Unreleased]
 
+## [v1.4.0] Alpha, 2023-12-15
+
+### Added
+
+- 3 new skins! Auburn Night, Peppermint, and Smiley
+
+### Fixed
+
+- Slightly smoother CPU paddle movement now
+- Ball previously displayed behind fire effect sprite
+
 ## [v1.3.1] Alpha, 2023-12-13
 
 ### Added
@@ -56,6 +67,7 @@ Written by fffadedev.
 
 - [Back to top](#changelog)
 - [unreleased](#unreleased)
+- [1.4.0](#v1.4.0)
 - [1.3.1](#v1.3.1)
 - [1.3.0](#v1.3.0)
 - [1.2.0](#v1.2.0)

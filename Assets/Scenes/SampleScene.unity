@@ -1891,7 +1891,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 5a6fd0fbb677b9742bd10550b923364b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3594,6 +3594,10 @@ PrefabInstance:
       propertyPath: settingsFileName
       value: easy.json
       objectReference: {fileID: 0}
+    - target: {fileID: -978098733464473505, guid: f287a21ee4a136143b7337490dfc789f, type: 3}
+      propertyPath: movementSmoothingThreshold
+      value: 0.07
+      objectReference: {fileID: 0}
     - target: {fileID: 789765619414178678, guid: f287a21ee4a136143b7337490dfc789f, type: 3}
       propertyPath: forcefield
       value: 
@@ -3740,6 +3744,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerups:
   - {fileID: 3907555287595167977, guid: 7da869a6c783c8e4eaf0edc64b222a28, type: 3}
+  - {fileID: 3907555287595167977, guid: cc0ff4c7b919c1642b12e878c0add798, type: 3}
+  - {fileID: 3907555287595167977, guid: da4f54ec69dfc7d43909443fffcb678e, type: 3}
+  - {fileID: 3907555287595167977, guid: 815676305f5762b419bf1d5680bce03f, type: 3}
+  - {fileID: 3907555287595167977, guid: cc29b1b40f8d7f64793572a8f58aa0fc, type: 3}
   isSpawning: 0
   spawnInterval: 20
 --- !u!61 &1770126900
