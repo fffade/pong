@@ -11,5 +11,6 @@
   "forcefieldSpeedThreshold": 2000,
   "forcefieldDistanceThreshold": 2,
   "wallBufferYDirectionThreshold": 0.4,
-  "wallBufferAmount": 2
+  "wallBufferAmount": 2,
+  "predictPosition": false
 }

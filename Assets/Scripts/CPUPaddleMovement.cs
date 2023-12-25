@@ -84,6 +84,15 @@ public class CPUPaddleMovement : MonoBehaviour
             // Debug.Log("Wall buffer: " + targetY);
         }
         
+        // Predict future ball position
+        float distanceX = Mathf.Abs(ball.position.x - _rigidbody.position.x);
+        float expectedYChange = distanceX * _ballMovement.Direction.y;
+        
+        if (Settings.predictPosition)
+        {
+            targetY = ball.position.y + expectedYChange;
+        }
+
         if (Mathf.Abs(targetY - _rigidbody.position.y) <= movementSmoothingThreshold)
         {
             _rigidbody.position = new Vector2(_rigidbody.position.x, targetY);

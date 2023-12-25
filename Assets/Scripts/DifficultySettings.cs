@@ -19,11 +19,14 @@ public class DifficultySettings
 
     public Vector2 curveDistanceThreshold;
 
+    public bool predictPosition;
+    
 
     public DifficultySettings(string uniqueName, int coinBonusIndex,
                             float speed, float ballDistanceThreshold, Vector2 curveDistanceThreshold, float curveAmount,
                             float forcefieldDistanceThreshold, float forcefieldSpeedThreshold,
-                            float wallBufferYDirectionThreshold, float wallBufferAmount)
+                            float wallBufferYDirectionThreshold, float wallBufferAmount,
+                            bool predictPosition)
     {
         this.uniqueName = uniqueName;
         this.coinBonusIndex = coinBonusIndex;
@@ -35,6 +38,7 @@ public class DifficultySettings
         this.forcefieldSpeedThreshold = forcefieldSpeedThreshold;
         this.wallBufferYDirectionThreshold = wallBufferYDirectionThreshold;
         this.wallBufferAmount = wallBufferAmount;
+        this.predictPosition = predictPosition;
     }
     
     /* Load settings from a file using JSON */

@@ -1,0 +1,16 @@
+{
+  "uniqueName": "master",
+  "coinBonusIndex": 2,
+  "speed": 13,
+  "ballDistanceThreshold": 0,
+  "curveDistanceThreshold": {
+    "x": 1.5,
+    "y": 0.8
+  },
+  "curveAmount": 1.25,
+  "forcefieldSpeedThreshold": 2000,
+  "forcefieldDistanceThreshold": 2,
+  "wallBufferYDirectionThreshold": 0.4,
+  "wallBufferAmount": 3,
+  "predictPosition": true
+}

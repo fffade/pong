@@ -302,6 +302,7 @@ MonoBehaviour:
   difficultyFileNames:
   - easy.json
   - normal.json
+  - hard.json
   fileName: current.json
 --- !u!1 &242484556
 GameObject:

@@ -1150,7 +1150,7 @@ MonoBehaviour:
   winnerAmount: 4
   loserAmount: 2
   flawlessWinAmount: 2
-  coinBonuses: 0000000002000000
+  coinBonuses: 000000000200000004000000
 --- !u!114 &219374249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1180,6 +1180,7 @@ MonoBehaviour:
   difficultyFileNames:
   - easy.json
   - normal.json
+  - hard.json
   fileName: current.json
 --- !u!1001 &246048252
 PrefabInstance:
